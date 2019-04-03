@@ -96,8 +96,8 @@ def offset(lat,lon,dx,dy):
 
 server='localhost'
 port = 8500
-lat=19.539166
-lon=-99.196732
+lat=19.539186
+lon=-99.196765
 imei="357042061712320"
 speed=0
 bearing="180.0"
@@ -128,16 +128,6 @@ while True:
                   "35", portStatus,str(direction['x']))
         s.sendall(output)
         ###########
-        print("coordinates: {},{}, {},{}".format(lat, lon,500,500))
-        newPosition=offset(lat,lon,500,500)
-        print("NEW pos:{}".format(newPosition))
-        coordinates=newPosition.split(",")
-        lat=float(coordinates[0])
-        lon=float(coordinates[1 ])
-        print("coordinates: {},{}".format(lat,lon))
-        output=getMVT380("12345678", accuracy, speed, str(lat), str(lon), datetime.utcnow().strftime("%y%m%d%H%M%S"),
-                  "35", portStatus,str(direction['x']))
-        s.sendall(output)
         #output=raw_input("Press Enter to continue...")
         #print(output)
         time.sleep(2)
